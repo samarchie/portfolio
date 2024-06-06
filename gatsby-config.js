@@ -5,7 +5,7 @@ module.exports = {
     title: 'Sam Archie',
     description:
       'Sam Archie is a data scientist specialising in leveraging spatial data to solve location-based problems.',
-    siteUrl: 'TODO', // No trailing slash allowed!
+    siteUrl: 'https://samarchie.org', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
   },

@@ -1,61 +1,61 @@
 import { css } from 'styled-components';
 
-import CalibreRegularWoff from '@fonts/Calibre/Calibre-Regular.woff';
-import CalibreRegularWoff2 from '@fonts/Calibre/Calibre-Regular.woff2';
-import CalibreMediumWoff from '@fonts/Calibre/Calibre-Medium.woff';
-import CalibreMediumWoff2 from '@fonts/Calibre/Calibre-Medium.woff2';
-import CalibreSemiboldWoff from '@fonts/Calibre/Calibre-Semibold.woff';
-import CalibreSemiboldWoff2 from '@fonts/Calibre/Calibre-Semibold.woff2';
+import RubikRegularWoff from '@fonts/Rubik/Rubik-Regular.woff';
+import RubikRegularWoff2 from '@fonts/Rubik/Rubik-Regular.woff2';
+import RubikMediumWoff from '@fonts/Rubik/Rubik-Medium.woff';
+import RubikMediumWoff2 from '@fonts/Rubik/Rubik-Medium.woff2';
+// import RubikBoldWoff from '@fonts/Rubik/Rubik-Bold.woff';
+// import RubikBoldWoff2 from '@fonts/Rubik/Rubik-Bold.woff2';
 
-import CalibreRegularItalicWoff from '@fonts/Calibre/Calibre-RegularItalic.woff';
-import CalibreRegularItalicWoff2 from '@fonts/Calibre/Calibre-RegularItalic.woff2';
-import CalibreMediumItalicWoff from '@fonts/Calibre/Calibre-MediumItalic.woff';
-import CalibreMediumItalicWoff2 from '@fonts/Calibre/Calibre-MediumItalic.woff2';
-import CalibreSemiboldItalicWoff from '@fonts/Calibre/Calibre-SemiboldItalic.woff';
-import CalibreSemiboldItalicWoff2 from '@fonts/Calibre/Calibre-SemiboldItalic.woff2';
+// import RubikRegularItalicWoff from '@fonts/Rubik/Rubik-Regular.woff';
+// import RubikRegularItalicWoff2 from '@fonts/Rubik/Rubik-Regular.woff2';
+// import RubikMediumItalicWoff from '@fonts/Rubik/Rubik-Medium.woff';
+// import RubikMediumItalicWoff2 from '@fonts/Rubik/Rubik-Medium.woff2';
+// import CalibreSemiboldItalicWoff from '@fonts/Calibre/Calibre-SemiboldItalic.woff';
+// import CalibreSemiboldItalicWoff2 from '@fonts/Calibre/Calibre-SemiboldItalic.woff2';
 
-import SFMonoRegularWoff from '@fonts/SFMono/SFMono-Regular.woff';
-import SFMonoRegularWoff2 from '@fonts/SFMono/SFMono-Regular.woff2';
-import SFMonoSemiboldWoff from '@fonts/SFMono/SFMono-Semibold.woff';
-import SFMonoSemiboldWoff2 from '@fonts/SFMono/SFMono-Semibold.woff2';
+import OpenSansRegularWoff from '@fonts/OpenSans/OpenSans-Regular.woff';
+import OpenSansRegularWoff2 from '@fonts/OpenSans/OpenSans-Regular.woff2';
+import OpenSansSemiBoldWoff from '@fonts/OpenSans/OpenSans-Semibold.woff';
+import OpenSansSemiBoldWoff2 from '@fonts/OpenSans/OpenSans-Semibold.woff2';
 
-import SFMonoRegularItalicWoff from '@fonts/SFMono/SFMono-RegularItalic.woff';
-import SFMonoRegularItalicWoff2 from '@fonts/SFMono/SFMono-RegularItalic.woff2';
-import SFMonoSemiboldItalicWoff from '@fonts/SFMono/SFMono-SemiboldItalic.woff';
-import SFMonoSemiboldItalicWoff2 from '@fonts/SFMono/SFMono-SemiboldItalic.woff2';
+import OpenSansRegularItalicWoff from '@fonts/OpenSans/OpenSans-Italic.woff';
+import OpenSansRegularItalicWoff2 from '@fonts/OpenSans/OpenSans-Italic.woff2';
+import OpenSansSemiBoldItalicWoff from '@fonts/OpenSans/OpenSans-SemiboldItalic.woff';
+import OpenSansSemiBoldItalicWoff2 from '@fonts/OpenSans/OpenSans-SemiboldItalic.woff2';
 
-const calibreNormalWeights = {
-  400: [CalibreRegularWoff, CalibreRegularWoff2],
-  500: [CalibreMediumWoff, CalibreMediumWoff2],
-  600: [CalibreSemiboldWoff, CalibreSemiboldWoff2],
+const rubikNormalWeights = {
+  400: [RubikRegularWoff, RubikRegularWoff2],
+  500: [RubikRegularWoff, RubikRegularWoff2],
+  600: [RubikMediumWoff, RubikMediumWoff2],
 };
 
-const calibreItalicWeights = {
-  400: [CalibreRegularItalicWoff, CalibreRegularItalicWoff2],
-  500: [CalibreMediumItalicWoff, CalibreMediumItalicWoff2],
-  600: [CalibreSemiboldItalicWoff, CalibreSemiboldItalicWoff2],
+// const calibreItalicWeights = {
+// 400: [CalibreRegularItalicWoff, CalibreRegularItalicWoff2],
+// 500: [CalibreMediumItalicWoff, CalibreMediumItalicWoff2],
+// 600: [CalibreSemiboldItalicWoff, CalibreSemiboldItalicWoff2],
+// };
+
+const openSansNormalWeights = {
+  400: [OpenSansRegularWoff, OpenSansRegularWoff2],
+  600: [OpenSansSemiBoldWoff, OpenSansSemiBoldWoff2],
 };
 
-const sfMonoNormalWeights = {
-  400: [SFMonoRegularWoff, SFMonoRegularWoff2],
-  600: [SFMonoSemiboldWoff, SFMonoSemiboldWoff2],
+const openSansItalicWeights = {
+  400: [OpenSansRegularItalicWoff, OpenSansRegularItalicWoff2],
+  600: [OpenSansSemiBoldItalicWoff, OpenSansSemiBoldItalicWoff2],
 };
 
-const sfMonoItalicWeights = {
-  400: [SFMonoRegularItalicWoff, SFMonoRegularItalicWoff2],
-  600: [SFMonoSemiboldItalicWoff, SFMonoSemiboldItalicWoff2],
+const rubik = {
+  name: 'Rubik',
+  normal: rubikNormalWeights,
+  // italic: calibreItalicWeights,
 };
 
-const calibre = {
-  name: 'Calibre',
-  normal: calibreNormalWeights,
-  italic: calibreItalicWeights,
-};
-
-const sfMono = {
-  name: 'SF Mono',
-  normal: sfMonoNormalWeights,
-  italic: sfMonoItalicWeights,
+const openSans = {
+  name: 'Open Sans',
+  normal: openSansNormalWeights,
+  italic: openSansItalicWeights,
 };
 
 const createFontFaces = (family, style = 'normal') => {
@@ -80,14 +80,14 @@ const createFontFaces = (family, style = 'normal') => {
   return styles;
 };
 
-const calibreNormal = createFontFaces(calibre);
-const calibreItalic = createFontFaces(calibre, 'italic');
+const rubikNormal = createFontFaces(rubik);
+// const calibreItalic = createFontFaces(calibre, 'italic');
 
-const sfMonoNormal = createFontFaces(sfMono);
-const sfMonoItalic = createFontFaces(sfMono, 'italic');
+const openSansNormal = createFontFaces(openSans);
+const openSansItalic = createFontFaces(openSans, 'italic');
 
 const Fonts = css`
-  ${calibreNormal + calibreItalic + sfMonoNormal + sfMonoItalic}
+  ${rubikNormal + openSansNormal + openSansItalic}
 `;
 
 export default Fonts;

@@ -20,7 +20,7 @@ const StyledHeroSection = styled.section`
   h1 {
     margin: 0 0 30px 4px;
     color: var(--slate);
-    font-family: var(--font-mono);
+    // font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
 
@@ -75,17 +75,13 @@ const Hero = () => {
       </p>
     </>
   );
-  // const five = (
-  //   <a
-  //     className="email-link"
-  //     href="https://www.newline.co/courses/build-a-spotify-connected-app"
-  //     target="_blank"
-  //     rel="noreferrer">
-  //     Check out my course!
-  //   </a>
-  // );
+  const five = (
+    <a className="email-link" href="mailto:sam.w.archie@gmail.com" target="_blank" rel="noreferrer">
+      Get in touch!
+    </a>
+  );
 
-  const items = [one, two, three, four];
+  const items = [one, two, three, four, five];
 
   return (
     <StyledHeroSection>
