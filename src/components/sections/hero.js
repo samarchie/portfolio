@@ -19,7 +19,7 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--green);
+    color: var(--slate);
     font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
@@ -31,7 +31,7 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 5px;
-    color: var(--slate);
+    color: var(--white);
     line-height: 0.9;
   }
 
@@ -59,17 +59,17 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Sam Archie.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const one = <h1>Kia ora, my name is</h1>;
+  const two = <h3 className="big-heading">Sam Archie.</h3>;
+  const three = <h3 className="big-heading">I analyse data to tackle hard-hitting problems.</h3>;
   const four = (
     <>
       <p>
-        I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, human-centered products
-        at{' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
+        I’m a data scientist specialising in leveraging spatial data to solve location-based
+        problems. I also provide actionable insights to drive business decisions. Currently, I’m
+        focused on building climate and natural hazard risk models at{' '}
+        <a href="https://www.urbanintelligence.co.nz/" target="_blank" rel="noreferrer">
+          Urban Intelligence
         </a>
         .
       </p>
