@@ -4,25 +4,16 @@ import RubikRegularWoff from '@fonts/Rubik/Rubik-Regular.woff';
 import RubikRegularWoff2 from '@fonts/Rubik/Rubik-Regular.woff2';
 import RubikMediumWoff from '@fonts/Rubik/Rubik-Medium.woff';
 import RubikMediumWoff2 from '@fonts/Rubik/Rubik-Medium.woff2';
-// import RubikBoldWoff from '@fonts/Rubik/Rubik-Bold.woff';
-// import RubikBoldWoff2 from '@fonts/Rubik/Rubik-Bold.woff2';
 
-// import RubikRegularItalicWoff from '@fonts/Rubik/Rubik-Regular.woff';
-// import RubikRegularItalicWoff2 from '@fonts/Rubik/Rubik-Regular.woff2';
-// import RubikMediumItalicWoff from '@fonts/Rubik/Rubik-Medium.woff';
-// import RubikMediumItalicWoff2 from '@fonts/Rubik/Rubik-Medium.woff2';
-// import CalibreSemiboldItalicWoff from '@fonts/Calibre/Calibre-SemiboldItalic.woff';
-// import CalibreSemiboldItalicWoff2 from '@fonts/Calibre/Calibre-SemiboldItalic.woff2';
+import RobotoRegularWoff from '@fonts/Roboto/Roboto-Regular.woff';
+import RobotoRegularWoff2 from '@fonts/Roboto/Roboto-Regular.woff2';
+import RobotoSemiBoldWoff from '@fonts/Roboto/Roboto-Bold.woff';
+import RobotoSemiBoldWoff2 from '@fonts/Roboto/Roboto-Bold.woff2';
 
-import OpenSansRegularWoff from '@fonts/OpenSans/OpenSans-Regular.woff';
-import OpenSansRegularWoff2 from '@fonts/OpenSans/OpenSans-Regular.woff2';
-import OpenSansSemiBoldWoff from '@fonts/OpenSans/OpenSans-Semibold.woff';
-import OpenSansSemiBoldWoff2 from '@fonts/OpenSans/OpenSans-Semibold.woff2';
-
-import OpenSansRegularItalicWoff from '@fonts/OpenSans/OpenSans-Italic.woff';
-import OpenSansRegularItalicWoff2 from '@fonts/OpenSans/OpenSans-Italic.woff2';
-import OpenSansSemiBoldItalicWoff from '@fonts/OpenSans/OpenSans-SemiboldItalic.woff';
-import OpenSansSemiBoldItalicWoff2 from '@fonts/OpenSans/OpenSans-SemiboldItalic.woff2';
+import RobotoRegularItalicWoff from '@fonts/Roboto/Roboto-Italic.woff';
+import RobotoRegularItalicWoff2 from '@fonts/Roboto/Roboto-Italic.woff2';
+import RobotoSemiBoldItalicWoff from '@fonts/Roboto/Roboto-BoldItalic.woff';
+import RobotoSemiBoldItalicWoff2 from '@fonts/Roboto/Roboto-BoldItalic.woff2';
 
 const rubikNormalWeights = {
   400: [RubikRegularWoff, RubikRegularWoff2],
@@ -30,20 +21,14 @@ const rubikNormalWeights = {
   600: [RubikMediumWoff, RubikMediumWoff2],
 };
 
-// const calibreItalicWeights = {
-// 400: [CalibreRegularItalicWoff, CalibreRegularItalicWoff2],
-// 500: [CalibreMediumItalicWoff, CalibreMediumItalicWoff2],
-// 600: [CalibreSemiboldItalicWoff, CalibreSemiboldItalicWoff2],
-// };
-
-const openSansNormalWeights = {
-  400: [OpenSansRegularWoff, OpenSansRegularWoff2],
-  600: [OpenSansSemiBoldWoff, OpenSansSemiBoldWoff2],
+const robotoNormalWeights = {
+  400: [RobotoRegularWoff, RobotoRegularWoff2],
+  600: [RobotoSemiBoldWoff, RobotoSemiBoldWoff2],
 };
 
-const openSansItalicWeights = {
-  400: [OpenSansRegularItalicWoff, OpenSansRegularItalicWoff2],
-  600: [OpenSansSemiBoldItalicWoff, OpenSansSemiBoldItalicWoff2],
+const robotoItalicWeights = {
+  400: [RobotoRegularItalicWoff, RobotoRegularItalicWoff2],
+  600: [RobotoSemiBoldItalicWoff, RobotoSemiBoldItalicWoff2],
 };
 
 const rubik = {
@@ -52,10 +37,10 @@ const rubik = {
   // italic: calibreItalicWeights,
 };
 
-const openSans = {
-  name: 'Open Sans',
-  normal: openSansNormalWeights,
-  italic: openSansItalicWeights,
+const roboto = {
+  name: 'Roboto',
+  normal: robotoNormalWeights,
+  italic: robotoItalicWeights,
 };
 
 const createFontFaces = (family, style = 'normal') => {
@@ -83,11 +68,11 @@ const createFontFaces = (family, style = 'normal') => {
 const rubikNormal = createFontFaces(rubik);
 // const calibreItalic = createFontFaces(calibre, 'italic');
 
-const openSansNormal = createFontFaces(openSans);
-const openSansItalic = createFontFaces(openSans, 'italic');
+const robotoNormal = createFontFaces(roboto);
+const robotoItalic = createFontFaces(roboto, 'italic');
 
 const Fonts = css`
-  ${rubikNormal + openSansNormal + openSansItalic}
+  ${rubikNormal + robotoNormal + robotoItalic}
 `;
 
 export default Fonts;

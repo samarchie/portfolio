@@ -17,9 +17,8 @@ const variables = css`
     --pink: #f57dff;
     --blue: #57cbff;
 
-    --font-sans: 'Rubik', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
-      sans-serif;
-    --font-mono: 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --font-sans: 'Rubik', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+    --font-mono: 'Roboto', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
     --fz-xxs: 12px;
     --fz-xs: 13px;
