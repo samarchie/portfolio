@@ -18,26 +18,31 @@ const StyledHeroSection = styled.section`
   }
 
   h1 {
-    margin: 0 0 30px 4px;
+    margin: 60px 0 20px 4px;
     color: var(--slate);
-    // font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
 
     @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
+      margin: 0 0 30px 2px;
     }
   }
 
-  h3 {
-    margin-top: 5px;
+  h2 {
+    margin-top: 0px;
     color: var(--white);
-    line-height: 0.9;
+    line-height: 100%;
+  }
+
+  h3 {
+    margin-top: 0px;
+    color: var(--white);
+    line-height: 100%;
   }
 
   p {
     margin: 20px 0 0;
-    max-width: 540px;
+    max-width: 650px;
   }
 
   .email-link {
@@ -60,7 +65,7 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Kia ora, my name is</h1>;
-  const two = <h3 className="big-heading">Sam Archie.</h3>;
+  const two = <h2 className="big-heading">Sam Archie.</h2>;
   const three = <h3 className="big-heading">I analyse data to tackle hard-hitting problems.</h3>;
   const four = (
     <>
