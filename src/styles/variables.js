@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
-    --dark-navy: #020c1b;
-    --navy: #171c28;
+    --dark-navy: #1f1f1f;
+    --navy: #1f1f1f;
     --light-navy: #112240;
     --lightest-navy: #233554;
     --navy-shadow: rgba(2, 12, 27, 0.7);
@@ -17,6 +17,10 @@ const variables = css`
     --pink: #f57dff;
     --blue: #57cbff;
 
+    --background: #1f1f1f;
+    --text: #cccccc;
+    --cta: #ff6347;
+
     --font-sans: 'Rubik', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
     --font-mono: 'Roboto', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
@@ -29,8 +33,8 @@ const variables = css`
     --fz-xxl: 22px;
     --fz-heading: 32px;
 
-    --border-radius: 4px;
-    --nav-height: 100px;
+    --border-radius: 12px;
+    --nav-height: 70px;
     --nav-scroll-height: 70px;
 
     --tab-height: 42px;

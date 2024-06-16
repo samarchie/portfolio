@@ -19,7 +19,7 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 60px 0 20px 4px;
-    color: var(--slate);
+    color: var(--text);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
 
@@ -36,18 +36,14 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 0px;
-    color: var(--white);
+    color: var(--cta);
     line-height: 100%;
   }
 
   p {
     margin: 20px 0 0;
     max-width: 650px;
-  }
-
-  .email-link {
-    ${({ theme }) => theme.mixins.bigButton};
-    margin-top: 50px;
+    color: var(--text);
   }
 `;
 
@@ -64,9 +60,13 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Kia ora, my name is</h1>;
+  const one = <p>Welcome, my name is</p>;
   const two = <h2 className="big-heading">Sam Archie.</h2>;
-  const three = <h3 className="big-heading">I analyse data to tackle hard-hitting problems.</h3>;
+  const three = (
+    <h3 className="medium-heading">
+      I'm dedicated to solving complex problems through data analysis.
+    </h3>
+  );
   const four = (
     <>
       <p>
@@ -80,13 +80,7 @@ const Hero = () => {
       </p>
     </>
   );
-  const five = (
-    <a className="email-link" href="mailto:sam.w.archie@gmail.com" target="_blank" rel="noreferrer">
-      Get in touch!
-    </a>
-  );
-
-  const items = [one, two, three, four, five];
+  const items = [one, two, three, four];
 
   return (
     <StyledHeroSection>

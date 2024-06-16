@@ -1,12 +1,15 @@
 ---
 date: '1'
-title: 'Resilience Explorer'
+title: 'The Resilience Explorer'
 cover: './website.png'
+external: 'https://resilience-explorer.org/'
 cta: 'https://resilience-explorer.org/'
+ctaText: 'Learn more'
 tech:
-  - React
   - Python
-  - PostGIS
+  - PostgreSQL & PostGIS
+  - GDAL
+  - GIS
   - MapBox
 ---
 
