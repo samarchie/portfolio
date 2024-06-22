@@ -73,7 +73,7 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I’m a data scientist specialising in leveraging spatial data to solve location-based
+        I'm a data scientist specialising in leveraging spatial data to solve location-based
         problems. I also provide actionable insights to drive business decisions. Currently, I’m
         focused on building climate and natural hazard risk models at{' '}
         <a href="https://www.urbanintelligence.co.nz/" target="_blank" rel="noreferrer">

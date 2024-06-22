@@ -29,11 +29,15 @@ const StyledTableContainer = styled.div`
     tbody tr {
       &:hover,
       &:focus {
-        background-color: var(--light-navy);
+        background-color: var(--light-background);
       }
     }
 
-    th,
+    th {
+      font-family: var(--font-text);
+      color: var(--light-text);
+    }
+
     td {
       padding: 10px;
       text-align: left;
@@ -85,15 +89,17 @@ const StyledTableContainer = styled.div`
       &.title {
         padding-top: 15px;
         padding-right: 20px;
-        color: var(--lightest-slate);
+        color: var(--light-cta);
         font-size: var(--fz-xl);
         font-weight: 600;
         line-height: 1.25;
+        font-family: var(--font-title);
       }
 
       &.company {
         font-size: var(--fz-lg);
         white-space: nowrap;
+        font-family: var(--font-text);
       }
 
       &.tech {
@@ -153,7 +159,7 @@ const ArchivePage = ({ location, data }) => {
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <p className="subtitle">A big list of things I've worked on</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>

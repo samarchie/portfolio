@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 
 const button = css`
-  color: var(--green);
+  color: var(--light-cta);
   background-color: transparent;
-  border: 1px solid var(--green);
+  border: 1px solid var(--light-cta);
   border-radius: var(--border-radius);
   font-size: var(--fz-xs);
-  font-family: var(--font-mono);
+  font-family: var(--font-title);
   line-height: 1;
   text-decoration: none;
   padding: 1.25rem 1.75rem;
@@ -15,7 +15,7 @@ const button = css`
   &:hover,
   &:focus-visible {
     outline: none;
-    box-shadow: 4px 4px 0 0 var(--green);
+    box-shadow: 4px 4px 0 0 var(--light-cta);
     transform: translate(-5px, -5px);
   }
   &:after {
@@ -46,7 +46,7 @@ const mixins = {
 
     &:hover,
     &:focus-visible {
-      color: var(--green);
+      color: var(--light-cta);
       outline: 0;
     }
   `,
@@ -54,18 +54,19 @@ const mixins = {
   inlineLink: css`
     display: inline-block;
     position: relative;
-    color: var(--green);
+    color: var(--light-cta);
     transition: var(--transition);
+    font-weight: 500;
 
     &:hover,
     &:focus-visible {
-      color: var(--green);
+      color: var(--light-cta);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--green) !important;
+        color: var(--light-cta) !important;
         transition: var(--transition);
       }
     }
@@ -76,7 +77,7 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: var(--green);
+      background-color: var(--light-cta);
       opacity: 0.5;
       @media (prefers-reduced-motion: no-preference) {
         transition: var(--transition);

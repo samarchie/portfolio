@@ -2,11 +2,6 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
-    --dark-blue: #070f2b;
-    --blue-grey: #535c91;
-    --white-blue: #b8ddff;
-    --indigo: #1b1a55;
-
     --light-background: #d3daea;
     --light-tone: #142e7d;
     --light-text: #535c91;
@@ -28,12 +23,8 @@ const variables = css`
     --dark-cta: #dee8ff;
     --dark-contrast: #e9f6ff;
 
-    --font-sans: 'Archivo', 'Clash Display', 'Rubik', 'San Francisco', 'SF Pro Text', -apple-system,
-      system-ui, sans-serif;
-    --font-mono: 'Archivo', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-
     --font-title: 'Clash Display', -apple-system, system-ui, sans-serif;
-    --font-paragraph: 'Archivo', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --font-paragraph: 'Archivo', monospace;
 
     --fz-xxs: 12px;
     --fz-xs: 13px;
@@ -45,8 +36,8 @@ const variables = css`
     --fz-heading: 32px;
 
     --border-radius: 12px;
-    --nav-height: 70px;
-    --nav-scroll-height: 70px;
+    --nav-height: 100px;
+    --nav-scroll-height: 100px;
 
     --tab-height: 42px;
     --tab-width: 120px;

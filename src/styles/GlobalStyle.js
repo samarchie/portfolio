@@ -75,8 +75,8 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: var(--light-background);
-    color: var(--slate);
-    font-family: var(--font-sans);
+    color: var(--light-text);
+    font-family: var(--font-text);
     font-size: var(--fz-xl);
     line-height: 1.3;
 
@@ -165,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--light-text);
     line-height: 1.1;
   }
 
@@ -194,8 +194,8 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
-      font-family: var(--font-mono);
+      color: var(--light-cta);
+      font-family: var(--font-title);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
 
@@ -213,7 +213,7 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: var(--light-background);
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -255,13 +255,14 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
-    color: inherit;
+    color: var(--light-cta);
     position: relative;
     transition: var(--transition);
+    font-family: var(--font-title);
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: var(--light-cta);
     }
 
     &.inline-link {
@@ -303,8 +304,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > code {
-      background-color: var(--light-navy);
-      color: var(--white);
+      background-color: var(--light-background);
+      color: var(--light-text);
       font-size: var(--fz-sm);
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
@@ -325,14 +326,14 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: var(--light-cta);
         }
       }
     }
   }
 
   blockquote {
-    border-left-color: var(--green);
+    border-left-color: var(--light-cta);
     border-left-style: solid;
     border-left-width: 1px;
     margin-left: 0px;
@@ -346,7 +347,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: var(--lightest-navy);
+    background-color: var(--light-cta);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -356,7 +357,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    font-family: var(--font-mono);
+    font-family: var(--font-text);
     font-size: var(--fz-md);
   }
 
@@ -372,8 +373,8 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      background-color: var(--green);
-      color: var(--navy);
+      background-color: var(--light-text-cta);
+      color: var(--light-cta);
       top: 0;
       left: 0;
       width: auto;
@@ -386,21 +387,21 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--green);
+    color: var(--light-background);
   }
 
   .overline {
-    color: var(--green);
-    font-family: var(--font-mono);
+    color: var(--light-cta);
+    font-family: var(--font-text);
     font-size: var(--fz-md);
     font-weight: 400;
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--light-cta);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
-    font-family: var(--font-mono);
+    font-family: var(--font-title);
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
@@ -420,7 +421,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    color: var(--green);
+    color: var(--light-cta);
 
     .arrow {
       display: block;
@@ -430,7 +431,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-      font-family: var(--font-mono);
+      font-family: var(--font-text);
       font-size: var(--fz-sm);
       font-weight: 600;
       line-height: 1.5;
