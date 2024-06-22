@@ -2,27 +2,38 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
-    --dark-navy: #1f1f1f;
-    --navy: #1f1f1f;
-    --light-navy: #112240;
-    --lightest-navy: #233554;
-    --navy-shadow: rgba(2, 12, 27, 0.7);
-    --dark-slate: #495670;
-    --slate: #8892b0;
-    --light-slate: #adb6d2;
-    --lightest-slate: #ccd6f6;
-    --white: #e7e7e7;
-    --green: #ffffff;
-    --green-tint: rgba(100, 255, 218, 0.1);
-    --pink: #f57dff;
-    --blue: #57cbff;
+    --dark-blue: #070f2b;
+    --blue-grey: #535c91;
+    --white-blue: #b8ddff;
+    --indigo: #1b1a55;
 
-    --background: #1f1f1f;
-    --text: #cccccc;
-    --cta: #ff6347;
+    --light-background: #d3daea;
+    --light-tone: #142e7d;
+    --light-text: #535c91;
+    --light-text-cta: #142e7d;
+    --light-cta: #1b1a55;
+    --light-contrast: #e9f6ff;
 
-    --font-sans: 'Rubik', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
-    --font-mono: 'Roboto', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    --mid-background: #535c91;
+    --mid-tone: #6573ab;
+    --mid-text: #d3daea;
+    --mid-text-cta: #2b2e40;
+    --mid-cta: #1b1a55;
+    --mid-contrast: #f4f6fa;
+
+    --dark-background: #1b1a55;
+    --dark-tone: #142e7d;
+    --dark-text: #dee8ff;
+    --dark-text-cta: #142e7d;
+    --dark-cta: #dee8ff;
+    --dark-contrast: #e9f6ff;
+
+    --font-sans: 'Archivo', 'Clash Display', 'Rubik', 'San Francisco', 'SF Pro Text', -apple-system,
+      system-ui, sans-serif;
+    --font-mono: 'Archivo', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+    --font-title: 'Clash Display', -apple-system, system-ui, sans-serif;
+    --font-paragraph: 'Archivo', 'Open Sans', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
     --fz-xxs: 12px;
     --fz-xs: 13px;

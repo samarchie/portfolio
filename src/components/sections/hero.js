@@ -18,11 +18,11 @@ const StyledHeroSection = styled.section`
   }
 
   h1 {
-    margin: 60px 0 20px 4px;
-    color: var(--text);
+    margin: 60px 0px 0px 4px;
+    color: var(--light-text);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
-    font-weight: 400;
-
+    font-weight: 500;
+    font-family: var(--font-title);
     @media (max-width: 480px) {
       margin: 0 0 30px 2px;
     }
@@ -30,20 +30,27 @@ const StyledHeroSection = styled.section`
 
   h2 {
     margin-top: 0px;
-    color: var(--white);
-    line-height: 100%;
+    color: var(--cta);
+    line-height: 90%;
+    font-family: var(--font-title);
+    font-weight: 500;
+    color: var(--light-cta);
   }
 
   h3 {
-    margin-top: 0px;
-    color: var(--cta);
-    line-height: 100%;
+    margin-top: 10px;
+    line-height: 90%;
+    color: var(--light-text);
+    font-family: var(--font-title);
+    font-weight: 500;
   }
 
   p {
     margin: 20px 0 0;
     max-width: 650px;
-    color: var(--text);
+    color: var(--light-text);
+    font-family: var(--font-paragraph);
+    font-weight: 400;
   }
 `;
 
@@ -60,13 +67,9 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <p>Welcome, my name is</p>;
+  const one = <h1>Kia ora, I'm</h1>;
   const two = <h2 className="big-heading">Sam Archie.</h2>;
-  const three = (
-    <h3 className="medium-heading">
-      I'm dedicated to solving complex problems through data analysis.
-    </h3>
-  );
+  const three = <h3 className="medium-heading">I solve complex problems through data analysis.</h3>;
   const four = (
     <>
       <p>
