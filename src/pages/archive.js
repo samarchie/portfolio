@@ -34,7 +34,7 @@ const StyledTableContainer = styled.div`
     }
 
     th {
-      font-family: var(--font-text);
+      font-family: var(--font-paragraph);
       color: var(--light-text);
     }
 
@@ -99,7 +99,7 @@ const StyledTableContainer = styled.div`
       &.company {
         font-size: var(--fz-lg);
         white-space: nowrap;
-        font-family: var(--font-text);
+        font-family: var(--font-paragraph);
       }
 
       &.tech {

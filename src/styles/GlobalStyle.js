@@ -21,13 +21,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
+    background-color: var(--light-text);
+    color: var(--light-background);
   }
 
   /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--light-cta);
     outline-offset: 3px;
   }
 
@@ -46,24 +46,24 @@ const GlobalStyle = createGlobalStyle`
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--light-cta);
     outline-offset: 3px;
   }
 
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--light-text) var(--light-background);
   }
   ::-webkit-scrollbar {
     width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: var(--light-text);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--light-text);
+    border: 3px solid var(--light-background);
     border-radius: 10px;
   }
 
@@ -76,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     background-color: var(--light-background);
     color: var(--light-text);
-    font-family: var(--font-text);
+    font-family: var(--font-paragraph);
     font-size: var(--fz-xl);
     line-height: 1.3;
 
@@ -129,16 +129,13 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &.fillHeight {
-      padding: 0 150px;
+      padding: 0px 50px 0px 100px;
 
       @media (max-width: 1080px) {
-        padding: 0 100px;
       }
       @media (max-width: 768px) {
-        padding: 0 50px;
       }
       @media (max-width: 480px) {
-        padding: 0 25px;
       }
     }
   }
@@ -146,7 +143,7 @@ const GlobalStyle = createGlobalStyle`
   section {
     margin: 0 auto;
     padding: 100px 0;
-    max-width: 1000px;
+    max-width: 1300px;
 
     @media (max-width: 768px) {
       padding: 80px 0;
@@ -157,8 +154,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  h1,
-  h2,
+  h1 {
+    fon-family: var(--font-title);
+  }
+  h2 {
+    font-family: var(--font-title);
+  }
   h3,
   h4,
   h5,
@@ -258,7 +259,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--light-cta);
     position: relative;
     transition: var(--transition);
-    font-family: var(--font-title);
 
     &:hover,
     &:focus {
@@ -357,7 +357,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    font-family: var(--font-text);
+    font-family: var(--font-paragraph);
     font-size: var(--fz-md);
   }
 
@@ -392,7 +392,7 @@ const GlobalStyle = createGlobalStyle`
 
   .overline {
     color: var(--light-cta);
-    font-family: var(--font-text);
+    font-family: var(--font-paragraph);
     font-size: var(--fz-md);
     font-weight: 400;
   }
@@ -431,7 +431,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-      font-family: var(--font-text);
+      font-family: var(--font-paragraph);
       font-size: var(--fz-sm);
       font-weight: 600;
       line-height: 1.5;

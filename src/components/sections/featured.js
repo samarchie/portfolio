@@ -95,9 +95,16 @@ const StyledProject = styled.li`
     position: relative;
     grid-column: 1 / 7;
     grid-row: 1 / -1;
+    z-index: 2;
+    ${({ theme }) => theme.mixins.boxShadow};
+    padding: 25px;
+    border-radius: var(--border-radius);
+    color: var(--light-cta);
+    background-color: var(--light-contrast);
 
     @media (max-width: 1080px) {
       grid-column: 1 / 9;
+      background-color: var(--light-contrast);
     }
 
     @media (max-width: 768px) {
@@ -108,62 +115,71 @@ const StyledProject = styled.li`
       grid-column: 1 / -1;
       padding: 40px 40px 30px;
       z-index: 5;
+      background-color: transparent;
     }
 
     @media (max-width: 480px) {
       padding: 30px 25px 20px;
+      background-color: transparent;
     }
   }
 
-  .project-overline {
-    margin: 10px 0;
-    color: var(--green);
-    font-family: var(--font-mono);
+  .project-subtitle {
+    margin: 0px 0px 20px 0;
+    color: var(--light-text);
+    font-family: var(--font-title);
     font-size: var(--fz-xs);
     font-weight: 400;
   }
 
   .project-title {
-    color: var(--lightest-slate);
+    color: var(--light-cta);
     font-size: clamp(24px, 5vw, 28px);
+    font-family: var(--font-title);
+    margin: 0px 0;
 
     @media (min-width: 768px) {
-      margin: 0 0 20px;
+      a {
+        &:hover,
+        &:focus-visible {
+          color: var(--light-cta);
+          outline: 0;
+          &:after {
+            width: 100%;
+          }
+          & > * {
+            color: var(--light-cta) !important;
+            transition: var(--transition);
+          }
+        }
+        &:after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 2.5px;
+          position: relative;
+          bottom: 0.27em;
+          background-color: var(--light-cta);
+          opacity: 0.7;
+          @media (prefers-reduced-motion: no-preference) {
+            transition: var(--transition);
+          }
+        }
+      }
     }
 
     @media (max-width: 768px) {
-      color: var(--white);
-
-      a {
-        position: static;
-
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          z-index: 0;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-        }
-      }
+      color: var(--light-cta);
     }
   }
 
   .project-description {
-    ${({ theme }) => theme.mixins.boxShadow};
     position: relative;
-    z-index: 2;
-    padding: 25px;
-    border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
     font-size: var(--fz-lg);
+    font-family: var(--font-paragraph);
 
     @media (max-width: 768px) {
       padding: 20px 0;
-      background-color: transparent;
       box-shadow: none;
 
       &:hover {
@@ -176,7 +192,7 @@ const StyledProject = styled.li`
     }
 
     strong {
-      color: var(--white);
+      color: var(--cta-background);
       font-weight: normal;
     }
   }
@@ -192,8 +208,8 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-slate);
-      font-family: var(--font-mono);
+      color: var(--light-cta);
+      font-family: var(--font-paragraph);
       font-size: var(--fz-xs);
       white-space: nowrap;
     }
@@ -203,7 +219,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--light-cta);
       }
     }
   }
@@ -214,7 +230,7 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: var(--lightest-slate);
+    color: var(--light-cta);
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -235,6 +251,10 @@ const StyledProject = styled.li`
     }
 
     .cta {
+      ${({ theme }) => theme.mixins.bigButton};
+      margin: 10px;
+    }
+    .cta2 {
       ${({ theme }) => theme.mixins.smallButton};
       margin: 10px;
     }
@@ -256,19 +276,14 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: var(--light-background);
       border-radius: var(--border-radius);
       vertical-align: middle;
 
       &:hover,
       &:focus {
-        background: transparent;
-        outline: 0;
-
         &:before,
         .img {
-          background: transparent;
-          filter: none;
         }
       }
 
@@ -283,21 +298,15 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
       }
     }
 
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
-
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
       }
     }
   }
@@ -319,6 +328,7 @@ const Featured = () => {
                   gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
+              subtitle
               tech
               github
               external
@@ -361,6 +371,7 @@ const Featured = () => {
             const {
               external,
               title,
+              subtitle,
               tech,
               github,
               cover,
@@ -375,11 +386,12 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
-
-                    <h3 className="project-title">
-                      <a href={external}>{title}</a>
-                    </h3>
+                    <div>
+                      <h3 className="project-title">
+                        <a href={cta}>{title}</a>
+                      </h3>
+                    </div>
+                    {subtitle && <p className="project-subtitle">{subtitle}</p>}
 
                     <div
                       className="project-description"
@@ -401,7 +413,7 @@ const Featured = () => {
                         </a>
                       )}
                       {cta2 && (
-                        <a href={cta2} aria-label="Course Link" className="cta">
+                        <a href={cta2} aria-label="Course Link" className="cta2">
                           {ctaText2}
                         </a>
                       )}
@@ -421,7 +433,7 @@ const Featured = () => {
                 </div>
 
                 <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
+                  <a href={cta ? cta : external ? external : github ? github : '#'}>
                     <GatsbyImage image={image} alt={title} className="img" />
                   </a>
                 </div>
