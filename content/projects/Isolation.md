@@ -7,8 +7,9 @@ ios: ''
 android: ''
 tech:
   - Python
+  - Docker and Kubernetes
   - Network routing
-  - Hazard impact assessment
+  - PostgreSQL & PostGIS
 company: 'Urban Intelligence'
 showInProjects: true
 ---

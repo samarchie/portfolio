@@ -80,7 +80,7 @@ const Hero = () => {
     <>
       <p>
         I'm a data scientist specialising in leveraging spatial data to solve location-based
-        problems nd provide actionable insights to drive business decisions. Currently, I'm focused
+        problems and provide actionable insights to drive business decisions. Currently, I'm focused
         on building climate and natural hazard risk models at{' '}
         <a href="https://www.urbanintelligence.co.nz/" target="_blank" rel="noreferrer">
           Urban Intelligence

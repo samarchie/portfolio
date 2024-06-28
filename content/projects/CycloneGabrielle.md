@@ -8,7 +8,7 @@ android: ''
 tech:
   - Python
   - Data scraping
-  - PostgreSQL & PostGIS
+  - Network routing
 company: 'Urban Intelligence'
 showInProjects: true
 ---
