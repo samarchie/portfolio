@@ -39,10 +39,10 @@ const StyledProject = styled.li`
     }
   }
 
-  &:nth-of-type(odd) {
+  &:nth-of-type(even) {
     .project-content {
       grid-column: 7 / -1;
-      text-align: right;
+      text-align: left;
 
       @media (max-width: 1080px) {
         grid-column: 5 / -1;
@@ -57,30 +57,20 @@ const StyledProject = styled.li`
       }
     }
     .project-tech-list {
-      justify-content: flex-end;
+      justify-content: flex-start;
 
       @media (max-width: 768px) {
         justify-content: flex-start;
       }
 
       li {
-        margin: 0 0 5px 20px;
-
         @media (max-width: 768px) {
           margin: 0 10px 5px 0;
         }
       }
     }
     .project-links {
-      justify-content: flex-end;
-      margin-left: 0;
-      margin-right: -10px;
-
-      @media (max-width: 768px) {
-        justify-content: flex-start;
-        margin-left: -10px;
-        margin-right: 0;
-      }
+      justify-content: flex-start;
     }
     .project-image {
       grid-column: 1 / 8;
@@ -255,50 +245,27 @@ const StyledProject = styled.li`
       margin: 10px;
     }
     .cta2 {
-      ${({ theme }) => theme.mixins.smallButton};
+      ${({ theme }) => theme.mixins.button};
       margin: 10px;
+      color: var(--light-text);
+      background-color: var(--light-contrast);
+      border: 1.5px solid var(--light-text);
+      font-weight: 500;
     }
   }
 
   .project-image {
-    ${({ theme }) => theme.mixins.boxShadow};
     grid-column: 6 / -1;
     grid-row: 1 / -1;
     position: relative;
     z-index: 1;
+    background-color: var(--light-background);
+    border-radius: var(--border-radius);
 
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
       opacity: 0.25;
-    }
-
-    a {
-      width: 100%;
-      height: 100%;
-      background-color: var(--light-background);
-      border-radius: var(--border-radius);
-      vertical-align: middle;
-
-      &:hover,
-      &:focus {
-        &:before,
-        .img {
-        }
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 3;
-        transition: var(--transition);
-      }
     }
 
     .img {
@@ -309,6 +276,10 @@ const StyledProject = styled.li`
         height: 100%;
       }
     }
+  }
+
+  h2 {
+    margin: 0 0px;
   }
 `;
 
@@ -324,8 +295,10 @@ const Featured = () => {
             frontmatter {
               title
               cover {
+                extension
+                publicURL
                 childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(width: 2000, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
               subtitle
@@ -360,7 +333,7 @@ const Featured = () => {
 
   return (
     <section id="projects">
-      <h2 className="numbered-heading" ref={revealTitle}>
+      <h2 className="heading" ref={revealTitle}>
         Some Things I've Built
       </h2>
 
@@ -380,7 +353,11 @@ const Featured = () => {
               cta2,
               ctaText2,
             } = frontmatter;
-            const image = getImage(cover);
+
+            const imageData = cover?.childImageSharp
+              ? getImage(cover.childImageSharp.gatsbyImageData)
+              : null;
+            const isSVG = cover.extension === 'svg';
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -432,11 +409,13 @@ const Featured = () => {
                   </div>
                 </div>
 
-                <div className="project-image">
-                  <a href={cta ? cta : external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
-                  </a>
-                </div>
+                {isSVG ? (
+                  <img src={cover.publicURL} alt={title} width="1000" className="project-image" />
+                ) : (
+                  imageData && (
+                    <GatsbyImage image={imageData} alt={title} className="project-image" />
+                  )
+                )}
               </StyledProject>
             );
           })}

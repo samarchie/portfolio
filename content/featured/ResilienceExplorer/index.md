@@ -2,10 +2,12 @@
 date: '1'
 title: 'The Resilience Explorer'
 subtitle: 2021 - Present @ Urban Intelligence
-cover: './website.png'
+cover: './resilience_explorer.svg'
 external: 'https://resilience-explorer.org/'
-cta: 'https://resilience-explorer.org/'
-ctaText: 'Learn more'
+cta: 'https://resilience-explorer.com/'
+ctaText: 'Take a look'
+cta2: 'https://resilience-explorer.org/'
+ctaText2: 'Learn more'
 tech:
   - Python
   - PostgreSQL & PostGIS

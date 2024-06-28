@@ -36,8 +36,8 @@ const variables = css`
     --fz-heading: 32px;
 
     --border-radius: 12px;
-    --nav-height: 70px;
-    --nav-scroll-height: 70px;
+    --nav-height: 50px;
+    --nav-scroll-height: 50px;
 
     --tab-height: 42px;
     --tab-width: 120px;

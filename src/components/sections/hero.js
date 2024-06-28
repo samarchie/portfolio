@@ -43,6 +43,12 @@ const StyledHeroSection = styled.section`
     color: var(--light-text);
     font-family: var(--font-title);
     font-weight: 500;
+    a {
+      ${({ theme }) => theme.mixins.bigButton};
+      margin-top: 40px;
+      font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+      font-weight: 400;
+    }
   }
 
   p {
@@ -74,8 +80,8 @@ const Hero = () => {
     <>
       <p>
         I'm a data scientist specialising in leveraging spatial data to solve location-based
-        problems. I also provide actionable insights to drive business decisions. Currently, I’m
-        focused on building climate and natural hazard risk models at{' '}
+        problems nd provide actionable insights to drive business decisions. Currently, I'm focused
+        on building climate and natural hazard risk models at{' '}
         <a href="https://www.urbanintelligence.co.nz/" target="_blank" rel="noreferrer">
           Urban Intelligence
         </a>
@@ -83,7 +89,14 @@ const Hero = () => {
       </p>
     </>
   );
-  const items = [one, two, three, four];
+  const five = (
+    <h3>
+      <a href="#projects" className="link">
+        See what I have been up to
+      </a>
+    </h3>
+  );
+  const items = [one, two, three, four, five];
 
   return (
     <StyledHeroSection>
