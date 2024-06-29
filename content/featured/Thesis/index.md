@@ -2,7 +2,7 @@
 date: '2'
 title: 'Spatial Multi-Criteria Decision Analysis for Urban Planning'
 subtitle: 2020 - 2021 @ University of Canterbury
-cover: './weighted_sum_results.png'
+cover: './thesis.png'
 external: 'https://ir.canterbury.ac.nz/items/7ca5ac03-46f5-4b02-9ee9-46a71ca73059'
 cta: 'https://www.engineeringnz.org/news-insights/risky-business/'
 ctaText: 'Learn more'
