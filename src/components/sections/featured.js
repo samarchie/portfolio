@@ -23,6 +23,10 @@ const StyledProject = styled.li`
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
 
+  .heading {
+    font-size: clamp(24px, 5vw, var(--fz-heading));
+  }
+
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.boxShadow};
   }
@@ -277,10 +281,6 @@ const StyledProject = styled.li`
       }
     }
   }
-
-  h2 {
-    margin: 0 0px;
-  }
 `;
 
 const Featured = () => {
@@ -333,7 +333,7 @@ const Featured = () => {
 
   return (
     <section id="projects">
-      <h2 className="heading" ref={revealTitle}>
+      <h2 className="heading" ref={revealTitle} style={{ textAlign: 'center' }}>
         Some Things I've Built
       </h2>
 

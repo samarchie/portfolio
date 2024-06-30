@@ -1,19 +1,18 @@
 ---
-date: '2'
-title: 'Spatial Multi-Criteria Optimisation for Urban Planning'
-subtitle: 2020 - 2021 @ University of Canterbury
-cover: './thesis.png'
+date: '2020'
+title: 'Spatial Multi-Criteria Optimisation for Urban Planning (Masters Thesis)'
+github: ''
 external: 'https://ir.canterbury.ac.nz/items/7ca5ac03-46f5-4b02-9ee9-46a71ca73059'
-cta: 'https://www.engineeringnz.org/news-insights/risky-business/'
-ctaText: 'Learn more'
-cta2: 'https://ir.canterbury.ac.nz/items/7ca5ac03-46f5-4b02-9ee9-46a71ca73059'
-ctaText2: 'Read about all the details'
+ios: ''
+android: ''
 tech:
   - Python
   - Algorithms
   - PostgreSQL & PostGIS
   - GDAL
   - Spatial Urban Planning
+company: 'University of Canterbury'
+showInProjects: false
 ---
 
 Cities are challenged with many wicked problems: natural hazard risks, climate change, rapid urbanisation, the housing crisis, equity, public transport access, and chronic disease.
