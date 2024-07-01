@@ -74,8 +74,22 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Kia ora, I'm</h1>;
-  const two = <h2 className="big-heading">Sam Archie</h2>;
-  const three = <h3 className="medium-heading">I solve complex problems through data analysis</h3>;
+  const two = (
+    <h2 className="big-heading">
+      Sam Archie{' '}
+      <span role="img" aria-label="Waving emjoi">
+        👋
+      </span>
+    </h2>
+  );
+  const three = (
+    <h3 className="medium-heading">
+      I solve complex problems through data analysis{' '}
+      <span role="img" aria-label="Chart up empji">
+        📈
+      </span>
+    </h3>
+  );
   const four = (
     <>
       <p>
@@ -92,7 +106,10 @@ const Hero = () => {
   const five = (
     <h3>
       <a href="#projects" className="link">
-        See what I have been up to
+        See what I have been up to{' '}
+        <span role="img" aria-label="Point down emjoi">
+          👇
+        </span>
       </a>
     </h3>
   );
