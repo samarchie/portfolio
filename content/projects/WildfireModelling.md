@@ -2,7 +2,7 @@
 date: '2022'
 title: 'Wildfire Modelling and Prediction'
 github: ''
-external: 'https://ir.canterbury.ac.nz/items/7ca5ac03-46f5-4b02-9ee9-46a71ca73059'
+external: ''
 ios: ''
 android: ''
 tech:

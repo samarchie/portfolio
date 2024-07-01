@@ -112,7 +112,7 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: var(--light-contrast);
+    color: var(--light-card);
     background-color: var(--light-text);
     border: 1.5px solid var(--light-cta);
     border-radius: var(--border-radius);

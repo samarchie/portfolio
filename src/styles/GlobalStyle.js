@@ -155,7 +155,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    fon-family: var(--font-title);
+    font-family: var(--font-title);
   }
   h2 {
     font-family: var(--font-title);
@@ -173,11 +173,13 @@ const GlobalStyle = createGlobalStyle`
   .big-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 80px);
+    font-family: var(--font-title);
   }
 
   .medium-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 60px);
+    font-family: var(--font-title);
   }
 
   .numbered-heading {

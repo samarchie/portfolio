@@ -7,7 +7,7 @@ const variables = css`
     --light-text: #535c91;
     --light-text-cta: #142e7d;
     --light-cta: #1b1a55;
-    --light-contrast: #e9f6ff;
+    --light-card: #e9f6ff;
 
     --mid-background: #535c91;
     --mid-tone: #6573ab;

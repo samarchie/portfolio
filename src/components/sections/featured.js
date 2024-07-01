@@ -8,7 +8,19 @@ import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledProjectsGrid = styled.ul`
-  ${({ theme }) => theme.mixins.resetList};
+  list-style: none;
+  margin: 0;
+  padding: 50px;
+
+  @media (max-width: 1080px) {
+    padding: 40px;
+  }
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 
   a {
     position: relative;
@@ -94,11 +106,11 @@ const StyledProject = styled.li`
     padding: 25px;
     border-radius: var(--border-radius);
     color: var(--light-cta);
-    background-color: var(--light-contrast);
+    background-color: var(--light-card);
 
     @media (max-width: 1080px) {
       grid-column: 1 / 9;
-      background-color: var(--light-contrast);
+      background-color: var(--light-card);
     }
 
     @media (max-width: 768px) {
@@ -252,7 +264,7 @@ const StyledProject = styled.li`
       ${({ theme }) => theme.mixins.button};
       margin: 10px;
       color: var(--light-text);
-      background-color: var(--light-contrast);
+      background-color: var(--light-card);
       border: 1.5px solid var(--light-text);
       font-weight: 500;
     }

@@ -17,7 +17,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .archive-link {
-    font-family: var(--font-mono);
+    font-family: var(--font-paragraph);
     font-size: var(--fz-sm);
     &:after {
       bottom: 0.1em;
@@ -71,17 +71,17 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    background-color: var(--light-card);
     transition: var(--transition);
     overflow: auto;
   }
 
   .project-top {
     ${({ theme }) => theme.mixins.flexBetween};
-    margin-bottom: 35px;
+    margin-top: 15px;
 
     .folder {
-      color: var(--green);
+      color: var(--light-cta);
       svg {
         width: 40px;
         height: 40px;
@@ -92,7 +92,7 @@ const StyledProject = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--light-slate);
+      color: var(--light-cta);
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
@@ -115,12 +115,16 @@ const StyledProject = styled.li`
   }
 
   .project-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     margin: 0 0 10px;
-    color: var(--lightest-slate);
+    color: var(--light-cta);
     font-size: var(--fz-xxl);
+    font-family: var(--font-title);
 
     a {
-      position: static;
+      // position: static;
 
       &:before {
         content: '';
@@ -132,12 +136,19 @@ const StyledProject = styled.li`
         top: 0;
         left: 0;
       }
+
+      &.external {
+        svg {
+          width: 22px;
+          height: 22px;
+        }
+      }
     }
   }
 
   .project-description {
-    color: var(--light-slate);
-    font-size: 17px;
+    color: var(--light-text);
+    font-size: var(--fz-md);
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -154,7 +165,7 @@ const StyledProject = styled.li`
     list-style: none;
 
     li {
-      font-family: var(--font-mono);
+      font-family: var(--font-paragraph);
       font-size: var(--fz-xxs);
       line-height: 1.75;
 
@@ -180,7 +191,6 @@ const Projects = () => {
             frontmatter {
               title
               tech
-              github
               external
             }
             html
@@ -214,34 +224,11 @@ const Projects = () => {
 
   const projectInner = node => {
     const { frontmatter, html } = node;
-    const { github, external, title, tech } = frontmatter;
+    const { external, title, tech } = frontmatter;
 
     return (
       <div className="project-inner">
         <header>
-          <div className="project-top">
-            <div className="folder">
-              <Icon name="Folder" />
-            </div>
-            <div className="project-links">
-              {github && (
-                <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                  <Icon name="GitHub" />
-                </a>
-              )}
-              {external && (
-                <a
-                  href={external}
-                  aria-label="External Link"
-                  className="external"
-                  target="_blank"
-                  rel="noreferrer">
-                  <Icon name="External" />
-                </a>
-              )}
-            </div>
-          </div>
-
           <h3 className="project-title">
             {external ? (
               <a href={external} target="_blank" rel="noreferrer">
@@ -249,6 +236,16 @@ const Projects = () => {
               </a>
             ) : (
               <span>{title}</span>
+            )}
+            {external && (
+              <a
+                href={external}
+                aria-label="External Link"
+                className="external"
+                target="_blank"
+                rel="noreferrer">
+                <Icon name="External" />
+              </a>
             )}
           </h3>
           <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
