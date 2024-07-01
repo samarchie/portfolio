@@ -105,7 +105,7 @@ const StyledProject = styled.li`
     ${({ theme }) => theme.mixins.boxShadow};
     padding: 25px;
     border-radius: var(--border-radius);
-    color: var(--light-cta);
+    color: var(--light-text);
     background-color: var(--light-card);
 
     @media (max-width: 1080px) {
@@ -214,7 +214,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-cta);
+      color: var(--light-text);
       font-family: var(--font-paragraph);
       font-size: var(--fz-xs);
       white-space: nowrap;

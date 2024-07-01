@@ -124,8 +124,6 @@ const StyledProject = styled.li`
     font-family: var(--font-title);
 
     a {
-      // position: static;
-
       &:before {
         content: '';
         display: block;
