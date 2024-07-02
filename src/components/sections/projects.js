@@ -11,6 +11,7 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px;
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
@@ -117,7 +118,7 @@ const StyledProject = styled.li`
   .project-title {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: start;
     margin: 0 0 10px;
     color: var(--light-cta);
     font-size: var(--fz-xxl);

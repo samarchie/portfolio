@@ -10,7 +10,7 @@ const StyledHeroSection = styled.section`
   align-items: flex-start;
   min-height: 100vh;
   height: 100vh;
-  padding: 0;
+  padding: 40px;
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
     height: auto;
