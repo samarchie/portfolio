@@ -8,9 +8,9 @@ import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledProjectsSection = styled.section`
-  padding-top: 300px;
+  margin-top: 300px;
   @media (max-width: 1000px) {
-    padding-top: 0px;
+    margin-top: 0px;
 `;
 
 const StyledProjectsGrid = styled.ul`

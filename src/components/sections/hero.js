@@ -54,7 +54,7 @@ const StyledHeroSection = styled.li`
   p {
     margin: 20px 0 0;
     max-width: 650px;
-    color: var(--light-text);
+    color: var(--light-cta);
     font-family: var(--font-paragraph);
     font-weight: 400;
   }
