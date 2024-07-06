@@ -94,36 +94,51 @@ const StyledNav = styled.nav`
 const StyledLinks = styled.div`
   display: flex;
   align-items: center;
+  height: var(--nav-height);
 
   @media (max-width: 768px) {
     display: none;
   }
 
-  ol {
-    ${({ theme }) => theme.mixins.flexBetween};
+  ul {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
+    height: var(--nav-height);
 
-    li {
-      margin: 0 5px;
-      position: relative;
-      counter-increment: item 1;
-      font-size: var(--fz-xs);
-      font-weight: 400;
-      font-family: var(--font-title);
+    &:hover {
       color: var(--light-cta);
+      background-color: var(--light-background);
+    }
+  }
 
-      a {
-        padding: 10px;
+  li {
+    ${({ theme }) => theme.mixins.flexBetween};
+    list-style: none;
+    height: 100%;
+    position: relative;
+    font-size: var(--fz-xs);
+    font-weight: 500;
+    font-family: var(--font-title);
+    height: 100%;
 
-        &:before {
-          content: item;
-          margin-right: 5px;
-          color: var(--light-cta);
-          font-size: var(--fz-xxs);
-          text-align: right;
-        }
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 10px;
+      color: var(--light-text);
+      text-decoration: none;
+      height: -webkit-fill-available;
+
+      &:before {
+        content: item;
+        margin-right: 5px;
+        font-size: var(--fz-xxs);
+        text-align: right;
+      }
+      &:hover {
+        color: var(--light-cta);
       }
     }
   }
@@ -190,18 +205,16 @@ const Nav = ({ isHome }) => {
         {prefersReducedMotion ? (
           <>
             {Logo}
-
             <StyledLinks>
-              <ol>
+              <ul>
                 {navLinks &&
                   navLinks.map(({ url, name }, i) => (
                     <li key={i}>
-                      <Link to={url}>{name}</Link>
+                      <a href={url}>{name}</a>
                     </li>
                   ))}
-              </ol>
+              </ul>
             </StyledLinks>
-
             <Menu />
           </>
         ) : (
@@ -215,19 +228,19 @@ const Nav = ({ isHome }) => {
             </TransitionGroup>
 
             <StyledLinks>
-              <ol>
-                <TransitionGroup component={null}>
-                  {isMounted &&
-                    navLinks &&
-                    navLinks.map(({ url, name }, i) => (
-                      <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                          <Link to={url}>{name}</Link>
+              <TransitionGroup component={null}>
+                {isMounted &&
+                  navLinks &&
+                  navLinks.map(({ url, name }, i) => (
+                    <ul key={i}>
+                      <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                        <li key={url} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                          <a href={url}>{name}</a>
                         </li>
                       </CSSTransition>
-                    ))}
-                </TransitionGroup>
-              </ol>
+                    </ul>
+                  ))}
+              </TransitionGroup>
             </StyledLinks>
 
             <TransitionGroup component={null}>
