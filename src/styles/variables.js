@@ -9,20 +9,6 @@ const variables = css`
     --light-cta: #1b1a55;
     --light-card: #e9f6ff;
 
-    --mid-background: #535c91;
-    --mid-tone: #6573ab;
-    --mid-text: #d3daea;
-    --mid-text-cta: #2b2e40;
-    --mid-cta: #1b1a55;
-    --mid-contrast: #f4f6fa;
-
-    --dark-background: #1b1a55;
-    --dark-tone: #142e7d;
-    --dark-text: #dee8ff;
-    --dark-text-cta: #142e7d;
-    --dark-cta: #dee8ff;
-    --dark-contrast: #e9f6ff;
-
     --font-title: 'Clash Display', -apple-system, system-ui, sans-serif;
     --font-paragraph: 'Archivo', monospace;
 

@@ -8,19 +8,7 @@ import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledProjectsGrid = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 50px;
-
-  @media (max-width: 1080px) {
-    padding: 40px;
-  }
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-  @media (max-width: 480px) {
-    padding: 10px;
-  }
+  ${({ theme }) => theme.mixins.resetList};
 
   a {
     position: relative;

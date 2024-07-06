@@ -8,8 +8,6 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
-  max-width: 700px;
-
   .inner {
     display: flex;
 
@@ -34,13 +32,8 @@ const StyledTabList = styled.div`
 
   @media (max-width: 600px) {
     display: flex;
+    align-items: flex-end;
     overflow-x: auto;
-    width: calc(100% + 100px);
-    padding-left: 50px;
-    margin-left: -50px;
-    margin-bottom: 30px;
-  }
-  @media (max-width: 480px) {
     width: calc(100% + 50px);
     padding-left: 25px;
     margin-left: -25px;
@@ -73,11 +66,12 @@ const StyledTabButton = styled.button`
   width: 100%;
   height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--lightest-navy);
+  border-left: 2px solid var(--light-text);
   background-color: transparent;
-  color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
-  font-family: var(--font-mono);
+  color: ${({ isActive }) => (isActive ? 'var(--light-cta)' : 'var(--light-text)')};
+  font-family: var(--font-paragraph);
   font-size: var(--fz-xs);
+  font-weight: ${({ isActive }) => (isActive ? '600' : '400')};
   text-align: left;
   white-space: nowrap;
 
@@ -86,16 +80,19 @@ const StyledTabButton = styled.button`
   }
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
-    min-width: 120px;
-    padding: 0 15px;
+    min-width: var(--tab-width);
+    padding: 0px 8px 5px 8px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid var(--light-text);
     text-align: center;
+    text-wrap: pretty;
+    align-items: flex-end;
+    height: 100%;
   }
 
   &:hover,
   &:focus {
-    background-color: var(--light-navy);
+    // background-color: var(--light-card);
   }
 `;
 
@@ -104,10 +101,10 @@ const StyledHighlight = styled.div`
   top: 0;
   left: 0;
   z-index: 10;
-  width: 2px;
+  width: 3px;
   height: var(--tab-height);
   border-radius: var(--border-radius);
-  background: var(--green);
+  background: var(--light-cta);
   transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
@@ -117,12 +114,9 @@ const StyledHighlight = styled.div`
     bottom: 0;
     width: 100%;
     max-width: var(--tab-width);
-    height: 2px;
-    margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
-  }
-  @media (max-width: 480px) {
+    height: 3px;
     margin-left: 25px;
+    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
   }
 `;
 
@@ -148,19 +142,17 @@ const StyledTabPanel = styled.div`
   h3 {
     margin-bottom: 2px;
     font-size: var(--fz-xxl);
-    font-weight: 500;
+    font-weight: 600;
+    font-family: var(--font-title);
     line-height: 1.3;
-
-    .company {
-      color: var(--green);
-    }
+    color: var(--light-cta);
   }
 
   .range {
     margin-bottom: 25px;
-    color: var(--light-slate);
-    font-family: var(--font-mono);
     font-size: var(--fz-xs);
+    font-family: var(--font-title);
+    font-weight: 400;
   }
 `;
 
@@ -244,7 +236,7 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Where I’ve Worked</h2>
+      <h2>Where I've Worked</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
@@ -286,15 +278,15 @@ const Jobs = () => {
                     hidden={activeTabId !== i}>
                     <h3>
                       <span>{title}</span>
-                      <span className="company">
-                        &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
-                          {company}
-                        </a>
-                      </span>
                     </h3>
 
-                    <p className="range">{range}</p>
+                    <p className="range">
+                      {range}
+                      &nbsp;@&nbsp;
+                      <a href={url} className="inline-link">
+                        {company}
+                      </a>
+                    </p>
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                   </StyledTabPanel>

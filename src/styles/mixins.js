@@ -113,8 +113,8 @@ const mixins = {
 
   bigButton: css`
     color: var(--light-card);
-    background-color: var(--light-text);
-    border: 1.5px solid var(--light-cta);
+    background-color: var(--light-cta);
+    border: 1.5px solid var(--light-background);
     border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;
     font-size: var(--fz-sm);
@@ -127,7 +127,7 @@ const mixins = {
     &:hover,
     &:focus-visible {
       outline: none;
-      box-shadow: 4px 4px 0 0 var(--light-cta);
+      box-shadow: 4px 4px 0 0 var(--light-text);
       transform: translate(-5px, -5px);
     }
     &:after {

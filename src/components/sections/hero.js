@@ -10,7 +10,6 @@ const StyledHeroSection = styled.section`
   align-items: flex-start;
   min-height: 100vh;
   height: 100vh;
-  padding: 40px;
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
     height: auto;
@@ -77,29 +76,17 @@ const Hero = () => {
   const two = (
     <h2 className="big-heading">
       Sam Archie{' '}
-      <span role="img" aria-label="Waving emjoi">
+      <span role="img" aria-label="Waving emoji">
         👋
       </span>
     </h2>
   );
-  const three = (
-    <h3 className="medium-heading">
-      I solve complex problems through data analysis{' '}
-      <span role="img" aria-label="Chart up empji">
-        📈
-      </span>
-    </h3>
-  );
+  const three = <h3 className="medium-heading">I solve complex problems through data analysis </h3>;
   const four = (
     <>
       <p>
-        I'm a data scientist specialising in leveraging spatial data to solve location-based
-        problems and provide actionable insights to drive business decisions. Currently, I'm focused
-        on building climate and natural hazard risk models at{' '}
-        <a href="https://www.urbanintelligence.co.nz/" target="_blank" rel="noreferrer">
-          Urban Intelligence
-        </a>
-        .
+        I specialise in leveraging spatial data to solve location-based problems and provide
+        actionable insights to drive business decisions.
       </p>
     </>
   );
@@ -107,7 +94,7 @@ const Hero = () => {
     <h3>
       <a href="#projects" className="link">
         See what I have been up to{' '}
-        <span role="img" aria-label="Point down emjoi">
+        <span role="img" aria-label="Point down emoji">
           👇
         </span>
       </a>

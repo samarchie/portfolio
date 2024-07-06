@@ -11,7 +11,6 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
@@ -215,7 +214,7 @@ const Projects = () => {
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
-  const GRID_LIMIT = 6;
+  const GRID_LIMIT = 4;
   const projects = data.projects.edges.filter(({ node }) => node);
   const NUM_PROJECTS = projects.length;
   const firstSix = projects.slice(0, GRID_LIMIT);
