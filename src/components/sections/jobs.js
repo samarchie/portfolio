@@ -71,7 +71,7 @@ const StyledTabButton = styled.button`
   color: ${({ isActive }) => (isActive ? 'var(--light-cta)' : 'var(--light-text)')};
   font-family: var(--font-paragraph);
   font-size: var(--fz-xs);
-  font-weight: ${({ isActive }) => (isActive ? '600' : '400')};
+  font-weight: 500;
   text-align: left;
   white-space: nowrap;
 

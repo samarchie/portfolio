@@ -12,10 +12,6 @@ const StyledProjectsSection = styled.section`
   flex-direction: column;
   align-items: center;
 
-  h2 {
-    font-size: clamp(24px, 5vw, var(--fz-heading));
-  }
-
   .archive-link {
     font-family: var(--font-paragraph);
     font-size: var(--fz-sm);
@@ -27,19 +23,30 @@ const StyledProjectsSection = styled.section`
   .projects-grid {
     ${({ theme }) => theme.mixins.resetList};
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 35px;
     position: relative;
     margin-top: 50px;
-
-    @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  @media (max-width: 1440px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+  }
+
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(max-content, 1fr));
+    grid-gap: 35px;
+    padding-top: 50px;
   }
 
   .more-button {
     ${({ theme }) => theme.mixins.button};
-    margin: 80px auto 0;
+  }
+
+  .archive-button {
+    ${({ theme }) => theme.mixins.bigButton};
   }
 `;
 
@@ -69,7 +76,7 @@ const StyledProject = styled.li`
     align-items: flex-start;
     position: relative;
     height: 100%;
-    padding: 2rem 1.75rem;
+    padding: 2rem 2rem;
     border-radius: var(--border-radius);
     background-color: var(--light-card);
     transition: var(--transition);
@@ -147,6 +154,7 @@ const StyledProject = styled.li`
   .project-description {
     color: var(--light-text);
     font-size: var(--fz-md);
+    line-height: 1.4;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -217,8 +225,8 @@ const Projects = () => {
   const GRID_LIMIT = 4;
   const projects = data.projects.edges.filter(({ node }) => node);
   const NUM_PROJECTS = projects.length;
-  const firstSix = projects.slice(0, GRID_LIMIT);
-  const projectsToShow = showMore ? projects : firstSix;
+  const firstProjects = projects.slice(0, GRID_LIMIT);
+  const projectsToShow = showMore ? projects : firstProjects;
 
   const projectInner = node => {
     const { frontmatter, html } = node;
@@ -228,13 +236,7 @@ const Projects = () => {
       <div className="project-inner">
         <header>
           <h3 className="project-title">
-            {external ? (
-              <a href={external} target="_blank" rel="noreferrer">
-                {title}
-              </a>
-            ) : (
-              <span>{title}</span>
-            )}
+            <span>{title}</span>
             {external && (
               <a
                 href={external}
@@ -266,10 +268,6 @@ const Projects = () => {
     <StyledProjectsSection>
       <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
 
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
-      </Link>
-
       <ul className="projects-grid">
         {prefersReducedMotion ? (
           <>
@@ -300,11 +298,16 @@ const Projects = () => {
           </TransitionGroup>
         )}
       </ul>
-      {NUM_PROJECTS > GRID_LIMIT && (
-        <button className="more-button" onClick={() => setShowMore(!showMore)}>
-          Show {showMore ? 'Less' : 'More'}
-        </button>
-      )}
+      <div className="button-grid">
+        {NUM_PROJECTS > GRID_LIMIT && (
+          <button className="more-button" onClick={() => setShowMore(!showMore)}>
+            {showMore ? 'Hide some projects' : 'Load more projects'}
+          </button>
+        )}
+        <Link className="archive-button" to="/archive">
+          View all projects <span aria-hidden="true">👉</span>
+        </Link>
+      </div>
     </StyledProjectsSection>
   );
 };

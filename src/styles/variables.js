@@ -21,9 +21,8 @@ const variables = css`
     --fz-xxl: 22px;
     --fz-heading: 32px;
 
-    --border-radius: 12px;
-    --nav-height: 50px;
-    --nav-scroll-height: 50px;
+    --border-radius: 16px;
+    --nav-height: 60px;
 
     --tab-height: 42px;
     --tab-width: 120px;

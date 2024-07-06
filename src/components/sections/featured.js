@@ -7,6 +7,12 @@ import { srConfig } from '@config';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
+const StyledProjectsSection = styled.section`
+  padding-top: 300px;
+  @media (max-width: 1000px) {
+    padding-top: 0px;
+`;
+
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
 
@@ -32,7 +38,7 @@ const StyledProject = styled.li`
   }
 
   &:not(:last-of-type) {
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 
     @media (max-width: 768px) {
       margin-bottom: 70px;
@@ -131,36 +137,6 @@ const StyledProject = styled.li`
     font-size: clamp(24px, 5vw, 28px);
     font-family: var(--font-title);
     margin: 0px 0;
-
-    @media (min-width: 768px) {
-      a {
-        &:hover,
-        &:focus-visible {
-          color: var(--light-cta);
-          outline: 0;
-          &:after {
-            width: 100%;
-          }
-          & > * {
-            color: var(--light-cta) !important;
-            transition: var(--transition);
-          }
-        }
-        &:after {
-          content: '';
-          display: block;
-          width: 0;
-          height: 2.5px;
-          position: relative;
-          bottom: 0.27em;
-          background-color: var(--light-cta);
-          opacity: 0.7;
-          @media (prefers-reduced-motion: no-preference) {
-            transition: var(--transition);
-          }
-        }
-      }
-    }
 
     @media (max-width: 768px) {
       color: var(--light-cta);
@@ -332,7 +308,7 @@ const Featured = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <StyledProjectsSection id="projects">
       <h2 className="heading" ref={revealTitle} style={{ textAlign: 'center' }}>
         Some Things I've Built
       </h2>
@@ -364,9 +340,7 @@ const Featured = () => {
                 <div className="project-content">
                   <div>
                     <div>
-                      <h3 className="project-title">
-                        <a href={cta}>{title}</a>
-                      </h3>
+                      <h3 className="project-title">{title}</h3>
                     </div>
                     {subtitle && <p className="project-subtitle">{subtitle}</p>}
 
@@ -420,7 +394,7 @@ const Featured = () => {
             );
           })}
       </StyledProjectsGrid>
-    </section>
+    </StyledProjectsSection>
   );
 };
 

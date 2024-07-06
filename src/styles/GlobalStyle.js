@@ -78,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--light-text);
     font-family: var(--font-paragraph);
     font-size: var(--fz-xl);
-    line-height: 1.3;
+    line-height: 1.4;
 
     @media (max-width: 480px) {
       font-size: var(--fz-lg);
@@ -116,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
-    padding: 200px 150px;
+    padding: 0px 150px;
 
     @media (max-width: 1080px) {
       padding: 200px 100px;
@@ -129,7 +129,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     &.fillHeight {
-      padding: 0px 150px;
+      // padding: 0px 150px;
 
       @media (max-width: 1080px) {
         padding: 0px 100px;
@@ -162,6 +162,8 @@ const GlobalStyle = createGlobalStyle`
   }
   h2 {
     font-family: var(--font-title);
+    font-weight: 600;
+    font-size: clamp(40px, 8vw, 50px);
   }
   h3,
   h4,
@@ -256,7 +258,6 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
-    color: var(--light-cta);
     position: relative;
     transition: var(--transition);
 

@@ -3,18 +3,19 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
+import { StaticImage } from 'gatsby-plugin-image';
 
-const StyledHeroSection = styled.section`
-  ${({ theme }) => theme.mixins.flexCenter};
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 100vh;
-  height: 100vh;
+const StyledHeroSection = styled.li`
+  ${({ theme }) => theme.mixins.resetList};
 
-  @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
-    height: auto;
-    padding-top: var(--nav-height);
+  a {
+    position: relative;
+    z-index: 1;
   }
+  margin-right: 20px
+  position: relative;
+  display: grid;
+  align-items: center;
 
   h1 {
     margin: 60px 0px 0px 4px;
@@ -57,6 +58,48 @@ const StyledHeroSection = styled.section`
     font-family: var(--font-paragraph);
     font-weight: 400;
   }
+
+  .hero-content {
+    position: relative;
+    grid-row: 1 / -1;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    color: var(--light-text);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    grid-column: 1 / -1;
+    padding: 40px 40px 30px;
+    z-index: 5;
+    margin-right: 0; /* Remove margin for mobile screens */
+    background-color: transparent;
+  }
+
+  .hero-image {
+    grid-row: 1 / -1;
+    position: relative;
+    z-index: 1;
+    background-color: var(--light-background);
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-height: 550px;
+
+    grid-column: 1 / -1;
+    opacity: 0.25;
+
+    .img {
+      object-fit: cover;
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    .hero-image {
+      display: none;
+    }
+  }
 `;
 
 const Hero = () => {
@@ -81,16 +124,13 @@ const Hero = () => {
       </span>
     </h2>
   );
-  const three = <h3 className="medium-heading">I solve complex problems through data analysis </h3>;
-  const four = (
-    <>
-      <p>
-        I specialise in leveraging spatial data to solve location-based problems and provide
-        actionable insights to drive business decisions.
-      </p>
-    </>
+  const three = (
+    <p>
+      I'm a data scientist based in Aotearoa New Zealand. My expertise is in leveraging data to
+      answer complex questions and provide actionable insights to drive business decisions.
+    </p>
   );
-  const five = (
+  const four = (
     <h3>
       <a href="#projects" className="link">
         See what I have been up to{' '}
@@ -100,27 +140,37 @@ const Hero = () => {
       </a>
     </h3>
   );
-  const items = [one, two, three, four, five];
+  const items = [one, two, three, four];
 
   return (
-    <StyledHeroSection>
-      {prefersReducedMotion ? (
-        <>
-          {items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted &&
-            items.map((item, i) => (
-              <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-              </CSSTransition>
-            ))}
-        </TransitionGroup>
-      )}
-    </StyledHeroSection>
+    <section id="hero">
+      <StyledHeroSection id="hero">
+        <div className="hero-content">
+          {prefersReducedMotion ? (
+            items.map((item, i) => <div key={i}>{item}</div>)
+          ) : (
+            <TransitionGroup component={null}>
+              {isMounted &&
+                items.map((item, i) => (
+                  <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
+                    <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+                  </CSSTransition>
+                ))}
+            </TransitionGroup>
+          )}
+        </div>
+        <div className="hero-image">
+          <StaticImage
+            className="img hide-on-mobile"
+            src="../../images/me circle2.png"
+            quality={100}
+            height={800}
+            formats={['AUTO', 'WEBP', 'AVIF']}
+            alt="Headshot"
+          />
+        </div>
+      </StyledHeroSection>
+    </section>
   );
 };
 
