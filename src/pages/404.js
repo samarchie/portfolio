@@ -13,8 +13,8 @@ const StyledMainContainer = styled.main`
   flex-direction: column;
 `;
 const StyledTitle = styled.h1`
-  color: var(--green);
-  font-family: var(--font-mono);
+  color: var(--light-cta);
+  font-family: var(--font-title);
   font-size: clamp(100px, 25vw, 200px);
   line-height: 1;
 `;
@@ -22,9 +22,12 @@ const StyledSubtitle = styled.h2`
   font-size: clamp(30px, 5vw, 50px);
   font-weight: 400;
 `;
-const StyledHomeButton = styled(Link)`
+const StyledHomeButton = styled.h2`
   ${({ theme }) => theme.mixins.bigButton};
   margin-top: 40px;
+  a {
+    color: var(--light-bckground);
+  }
 `;
 
 const NotFoundPage = ({ location }) => {
@@ -44,7 +47,9 @@ const NotFoundPage = ({ location }) => {
     <StyledMainContainer className="fillHeight">
       <StyledTitle>404</StyledTitle>
       <StyledSubtitle>Page Not Found</StyledSubtitle>
-      <StyledHomeButton to="/">Go Home</StyledHomeButton>
+      <StyledHomeButton>
+        <Link to="/">Go Home</Link>
+      </StyledHomeButton>
     </StyledMainContainer>
   );
 

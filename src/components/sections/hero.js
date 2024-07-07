@@ -111,7 +111,7 @@ const StyledHeroSection = styled.li`
 
   .wave-hand {
     margin-left: 10px;
-    cursor: pointer;
+    cursor: grab;
 
     &.animated {
       animation-duration: 1s;
