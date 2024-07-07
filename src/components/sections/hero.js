@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
@@ -12,7 +12,7 @@ const StyledHeroSection = styled.li`
     position: relative;
     z-index: 1;
   }
-  margin-right: 20px
+  margin-right: 20px;
   position: relative;
   display: grid;
   align-items: center;
@@ -100,11 +100,57 @@ const StyledHeroSection = styled.li`
       display: none;
     }
   }
+
+  .emoji {
+    display: inline-block;
+    vertical-align: text-top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .wave-hand {
+    margin-left: 10px;
+    cursor: pointer;
+
+    &.animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+    &.wave {
+      animation-name: wave;
+    }
+
+    @keyframes wave {
+      from {
+        transform: none;
+      }
+      15% {
+        transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
+      }
+      30% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 7deg);
+      }
+      45% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -10deg);
+      }
+      60% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 5deg);
+      }
+      75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -2deg);
+      }
+      to {
+        transform: none;
+      }
+    }
+  }
 `;
 
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const waveHandRef = useRef(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -113,13 +159,43 @@ const Hero = () => {
 
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    const waveHand = waveHandRef.current;
+
+    if (waveHand) {
+      // Add the wave class on mount
+      waveHand.classList.add('wave');
+      setTimeout(() => {
+        waveHand.classList.remove('wave');
+      }, 1000); // Duration of the wave animation
+
+      // Add hover event listener
+      const handleMouseOver = () => {
+        waveHand.classList.add('wave');
+        setTimeout(() => {
+          waveHand.classList.remove('wave');
+        }, 1000); // Duration of the wave animation
+      };
+
+      waveHand.addEventListener('mouseover', handleMouseOver);
+
+      return () => {
+        waveHand.removeEventListener('mouseover', handleMouseOver);
+      };
+    }
+  }, [isMounted]);
 
   const one = <h1>Kia ora, I'm</h1>;
   const two = (
     <h2 className="big-heading">
       Sam Archie{' '}
-      <span role="img" aria-label="Waving emoji">
+      <span
+        ref={waveHandRef}
+        role="img"
+        aria-label="Waving emoji"
+        className="emoji wave-hand animated">
         👋
       </span>
     </h2>
@@ -144,7 +220,7 @@ const Hero = () => {
 
   return (
     <section id="hero">
-      <StyledHeroSection id="hero">
+      <StyledHeroSection>
         <div className="hero-content">
           {prefersReducedMotion ? (
             items.map((item, i) => <div key={i}>{item}</div>)
