@@ -56,39 +56,6 @@ const StyledPicGrid = styled.div`
     object-fit: cover;
     vertical-align: bottom;
   }
-
-  // Portrait
-  @media (max-aspect-ratio: 1/1) {
-    li {
-      height: 30vh;
-    }
-  }
-
-  // Short screens
-  @media (max-height: 480px) {
-    li {
-      height: 80vh;
-    }
-    img {
-      max-height: 150px;
-    }
-  }
-
-  // Smaller screens in portrait
-  @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-    ul {
-      flex-direction: row;
-    }
-    li {
-      height: auto;
-      width: 100%;
-    }
-    img {
-      width: 100%;
-      max-height: 150px;
-      min-width: 0;
-    }
-  }
 `;
 
 const About = () => {

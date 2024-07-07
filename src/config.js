@@ -19,19 +19,19 @@ module.exports = {
   navLinks: [
     {
       name: 'Projects',
-      url: '/#projects',
+      url: '#projects',
     },
     {
       name: 'About',
-      url: '/#about',
+      url: '#about',
     },
     {
       name: 'Experience',
-      url: '/#jobs',
+      url: '#jobs',
     },
     {
       name: 'Contact',
-      url: '/#contact',
+      url: '#contact',
     },
   ],
 
