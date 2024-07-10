@@ -8,6 +8,7 @@ const variables = css`
     --light-text-cta: #142e7d;
     --light-cta: #1b1a55;
     --light-card: #e9f6ff;
+    --light-card-transparent: rgba(233, 246, 255, 0.6);
 
     --font-title: 'Clash Display', -apple-system, system-ui, sans-serif;
     --font-paragraph: 'Archivo', monospace;

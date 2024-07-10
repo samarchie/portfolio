@@ -158,7 +158,7 @@ const mixins = {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--light-text);
       }
     }
   `,

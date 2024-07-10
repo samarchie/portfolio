@@ -11,6 +11,7 @@ const StyledProjectsSection = styled.section`
   margin-top: 300px;
   @media (max-width: 1000px) {
     margin-top: 0px;
+  } ;
 `;
 
 const StyledProjectsGrid = styled.ul`
@@ -28,10 +29,6 @@ const StyledProject = styled.li`
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
-
-  .heading {
-    font-size: clamp(24px, 5vw, var(--fz-heading));
-  }
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.boxShadow};
@@ -100,11 +97,12 @@ const StyledProject = styled.li`
     padding: 25px;
     border-radius: var(--border-radius);
     color: var(--light-text);
-    background-color: var(--light-card);
+    background-color: var(--light-card-transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     @media (max-width: 1080px) {
       grid-column: 1 / 9;
-      background-color: var(--light-card);
     }
 
     @media (max-width: 768px) {
@@ -116,6 +114,8 @@ const StyledProject = styled.li`
       padding: 40px 40px 30px;
       z-index: 5;
       background-color: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     @media (max-width: 480px) {
@@ -134,7 +134,7 @@ const StyledProject = styled.li`
 
   .project-title {
     color: var(--light-cta);
-    font-size: clamp(24px, 5vw, 28px);
+    font-size: clamp(26px, 5vw, 30px);
     font-family: var(--font-title);
     margin: 0px 0;
 
@@ -165,6 +165,15 @@ const StyledProject = styled.li`
       color: var(--cta-background);
       font-weight: normal;
     }
+
+    ul {
+      ${({ theme }) => theme.mixins.fancyList};
+      padding-left: 10px;
+      padding-bottom: 10px;
+      li {
+        margin-bottom: 3px;
+      }
+    }
   }
 
   .project-tech-list {
@@ -175,25 +184,35 @@ const StyledProject = styled.li`
     margin: 25px 0 10px;
     padding: 0;
     list-style: none;
+    color: var(--light-text);
 
     li {
-      margin: 0 20px 5px 0;
+      margin: 0 10px 5px 0;
+      padding: 0 10px 0 0;
       color: var(--light-text);
       font-family: var(--font-paragraph);
-      font-size: var(--fz-xs);
+      font-size: var(--fz-xxs);
       white-space: nowrap;
+      position: relative;
+
+      &:not(:last-child):not(:first-child)::after {
+        content: '|';
+        position: absolute;
+        right: 0;
+        color: var(--light-text);
+        opacity: 0.5;
+      }
     }
 
     @media (max-width: 768px) {
       margin: 10px 0;
 
       li {
-        margin: 0 10px 5px 0;
-        color: var(--light-cta);
+        margin: 0 5px 5px 0;
+        padding: 0 5px 0 0;
       }
     }
   }
-
   .project-links {
     display: flex;
     align-items: center;

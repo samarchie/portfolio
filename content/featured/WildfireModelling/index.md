@@ -1,9 +1,10 @@
 ---
 date: '4'
 title: 'Wildfire Modelling and Prediction'
-subtitle: '2022 @ University of Canterbury (Course: GISC405)'
+subtitle: 'University of Canterbury | 2022'
 cover: './fwi.png'
 tech:
+  - 'Technologies Used:'
   - Python
   - Big Data
   - NetCDF
@@ -11,4 +12,6 @@ tech:
   - Climate Modelling
 ---
 
-Extracted and manipulated live datasets of weather data across Aotearoa New Zealand from local stations. When coupled with historical weather datasets, I predicted where wildfires have the highest probability of occurring, given the current weather. For this course, my skills in manipulating large datasets, especially in the NetCDF format, were put to the test.
+What if we could predict wildfires before they happen using live weather data?
+
+In this project, I extracted and manipulated historical and live weather data from local weather stations across Aotearoa New Zealand to calculate the Fire Weather Index (FWI). By processing terabytes of climate data, I developed a tool that could revolutionise fire prevention strategies, showcasing the power of data science in environmental protection.
