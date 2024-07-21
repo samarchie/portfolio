@@ -87,7 +87,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <StyledContactSection id="contact" ref={revealContainer}>
+    <StyledContactSection id="contact">
       <span role="img" aria-label="Point down emoji" className="point-left">
         👈 Get In Touch
       </span>

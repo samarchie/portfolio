@@ -79,6 +79,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--font-paragraph);
     font-size: var(--fz-xl);
     line-height: 1.4;
+    scroll-behavior: smooth;
 
     @media (max-width: 480px) {
       font-size: var(--fz-lg);
@@ -183,10 +184,46 @@ const GlobalStyle = createGlobalStyle`
 
   .medium-heading {
     margin: 0;
-    font-size: clamp(40px, 8vw, 60px);
+    padding-bottom: 75px;
+    font-size: var(--fz-title);
     font-family: var(--font-title);
   }
 
+  .sticky-heading {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    background-color: transparent;
+    z-index: 13;
+    pointer-events: none;
+    transition: font-size 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out, max-width 1s ease-in-out;
+    transition-delay: 0s, 0s, 0s, 1s;    
+    will-change: font-size, padding, transform; max-width;  
+    text-align: left;
+    max-width: 100%;    
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  .stuck {
+    margin: 0;
+    padding-top: 14.6px;
+    transition: font-size 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out, max-width 1s ease-in-out;
+    transition-delay: 0s, 0s, 0s, 1s;    
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }    
+    
+    font-size: var(--fz-heading);
+    @media (max-width: 608px) {
+      font-size: var(--fz-xl);
+    }
+    @media (max-width: 608px) {
+      font-size: var(--fz-s);
+    }
+  }
+  
   .numbered-heading {
     display: flex;
     align-items: center;

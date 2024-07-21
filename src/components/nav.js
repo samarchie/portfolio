@@ -95,6 +95,7 @@ const StyledLinks = styled.div`
   display: flex;
   align-items: center;
   height: var(--nav-height);
+  z-index: 14;
 
   @media (max-width: 768px) {
     display: none;
@@ -107,6 +108,11 @@ const StyledLinks = styled.div`
     height: var(--nav-height);
 
     &:hover {
+      color: var(--light-cta);
+      background-color: var(--light-background);
+    }
+
+    &.active {
       color: var(--light-cta);
       background-color: var(--light-background);
     }
@@ -137,6 +143,11 @@ const StyledLinks = styled.div`
         font-size: var(--fz-xxs);
         text-align: right;
       }
+
+      &.active {
+        color: var(--light-cta);
+      }
+
       &:hover {
         color: var(--light-cta);
       }
@@ -149,6 +160,7 @@ const Nav = ({ isHome }) => {
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [activeSection, setActiveSection] = useState('');
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -168,6 +180,29 @@ const Nav = ({ isHome }) => {
     return () => {
       clearTimeout(timeout);
       window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15,
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
     };
   }, []);
 
@@ -200,7 +235,10 @@ const Nav = ({ isHome }) => {
   );
 
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <StyledHeader
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+      active={activeSection}>
       <StyledNav>
         {prefersReducedMotion ? (
           <>
@@ -232,7 +270,7 @@ const Nav = ({ isHome }) => {
                 {isMounted &&
                   navLinks &&
                   navLinks.map(({ url, name }, i) => (
-                    <ul key={i}>
+                    <ul key={i} className={activeSection === url.slice(2) ? 'active' : ''}>
                       <CSSTransition classNames={fadeDownClass} timeout={timeout}>
                         <li key={url} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
                           <Link to={url}>{name}</Link>

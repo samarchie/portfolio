@@ -5,7 +5,14 @@ import { navDelay, loaderDelay } from '@utils';
 import { usePrefersReducedMotion } from '@hooks';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const StyledHeroSection = styled.li`
+const StyledHeroSection = styled.section`
+  margin: 0 auto;
+  padding-bottom: 100px;
+  padding-top: var(--nav-height);
+  max-width: 1300px;
+`;
+
+const StyledHeroList = styled.li`
   ${({ theme }) => theme.mixins.resetList};
 
   a {
@@ -195,7 +202,7 @@ const Hero = () => {
         ref={waveHandRef}
         role="img"
         aria-label="Waving emoji"
-        className="emoji wave-hand animated">
+        className="emoji wave-hand animated hide-on-mobile">
         👋
       </span>
     </h2>
@@ -219,8 +226,8 @@ const Hero = () => {
   const items = [one, two, three, four];
 
   return (
-    <section id="hero">
-      <StyledHeroSection>
+    <StyledHeroSection id="hero">
+      <StyledHeroList>
         <div className="hero-content">
           {prefersReducedMotion ? (
             items.map((item, i) => <div key={i}>{item}</div>)
@@ -237,16 +244,16 @@ const Hero = () => {
         </div>
         <div className="hero-image">
           <StaticImage
-            className="img hide-on-mobile"
+            className="img"
             src="../../images/me circle2.png"
             quality={100}
-            height={800}
+            height={900}
             formats={['AUTO', 'WEBP', 'AVIF']}
             alt="Headshot"
           />
         </div>
-      </StyledHeroSection>
-    </section>
+      </StyledHeroList>
+    </StyledHeroSection>
   );
 };
 

@@ -8,17 +8,20 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
-  .inner {
-    display: flex;
+  align-items: left;
+`;
 
-    @media (max-width: 600px) {
-      display: block;
-    }
+const StyledJobsInner = styled.div`
+  padding: 0;
+  margin: 0;
 
-    // Prevent container from jumping
-    @media (min-width: 700px) {
-      min-height: 340px;
-    }
+  display: flex;
+  @media (max-width: 600px) {
+    display: block;
+  }
+  // Prevent container from jumping
+  @media (min-width: 700px) {
+    min-height: 340px;
   }
 `;
 
@@ -235,10 +238,11 @@ const Jobs = () => {
   };
 
   return (
-    <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2>Where I've Worked</h2>
-
-      <div className="inner">
+    <StyledJobsSection id="jobs">
+      <h2 ref={revealContainer} className="medium-heading">
+        Where I've Worked
+      </h2>
+      <StyledJobsInner ref={revealContainer}>
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
@@ -294,7 +298,7 @@ const Jobs = () => {
               );
             })}
         </StyledTabPanels>
-      </div>
+      </StyledJobsInner>
     </StyledJobsSection>
   );
 };

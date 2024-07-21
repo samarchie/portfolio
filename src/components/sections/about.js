@@ -5,6 +5,9 @@ import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
+const AboutMeSection = styled.section`
+  align-items: left;
+`;
 const StyledText = styled.div`
   ul.skills-list {
     display: grid;
@@ -73,8 +76,8 @@ const About = () => {
   const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
 
   return (
-    <section id="about" ref={revealContainer}>
-      <h2>About Me</h2>
+    <AboutMeSection id="about" ref={revealContainer}>
+      <h2 className="medium-heading">About Me</h2>
 
       <StyledText>
         <div>
@@ -160,7 +163,7 @@ const About = () => {
           </li>
         </ul>
       </StyledPicGrid>
-    </section>
+    </AboutMeSection>
   );
 };
 
