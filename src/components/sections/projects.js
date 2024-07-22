@@ -13,9 +13,14 @@ const StyledProjectsSection = styled.section`
     margin-top: 0px;
   }
 
+  display: flex;
+  flex-direction: column;
+  align-items: left; // Center the button horizontally
+  justify-content: center; // Center the button vertically
+
   .projects-button {
     ${({ theme }) => theme.mixins.bigButton};
-    margin-top: 50px;
+    margin-top: 100px;
     align-self: center;
   }
 `;
@@ -425,7 +430,7 @@ const Projects = () => {
           })}
       </StyledProjectsGrid>
       <Link className="projects-button" to="/projects">
-        Want to view more projects <span aria-hidden="true">👉</span>
+        View more projects <span aria-hidden="true">👀👉</span>
       </Link>
     </StyledProjectsSection>
   );
